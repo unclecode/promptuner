@@ -1,17 +1,10 @@
-const task_sample = `I am designing a chatbot to provide some question, collect answer from audience to help them find a match based on their insights from their favourite movies. These questions catogories are:
-
-- Film Character Identification (FCI)
-- Self Identification (SI)
-- Film Counter-Character Identification (FCCI)
-- Counter-Self Identification  (CSI)
-- Values (V)
-
-For each part we provide the starting question, and one sample of conversation, which cha bot should follow exactly that one. 
-
-The goal is to instruct the At bot to follow exactly these questions, collect data and then, the end AI should generate 10 Portrait Values Questionnaire (PVQ). I also provide the example of that 10 questions. 
-
-Now task is to generate a very though details PROMPT for the AI language model to follow, and asl all these questions. `
-const variables_sample = 'FCI, SI, FCCI, CSI, V, PVQ';
+const task_sample = `Analyze the given email content and perform the following:
+    1. Classify the email into one of the provided class labels.
+    2. Score the email's importance on a scale of 1 to 10.
+    3. Provide a one-sentence summary of the email.
+    4. Extract the sender's email address.
+    Return the results in a JSON format.`
+const variables_sample = 'EMAIL_CONTENT, CLASS_LABELS';
 
 const AppContext = React.createContext();
 
