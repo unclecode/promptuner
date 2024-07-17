@@ -1,6 +1,7 @@
-# PromptTuner
+# Promptuner
+## Turning small task descriptions into mega prompts automatically 🪄✨
 
-🚀 **PromptTuner** is an open-source library that converts simple task descriptions into detailed, high-quality prompts for any large language model. With PromptTuner, even small models can achieve remarkable results by extracting perfect JSON, making function calls, creating structured outputs, and performing complex reasoning and analytical tasks.
+🚀 **promptuner** is an open-source library that converts simple task descriptions into detailed, high-quality prompts for any large language model. With promptuner, even small models can achieve remarkable results by extracting perfect JSON, making function calls, creating structured outputs, and performing complex reasoning and analytical tasks.
 
 ## Features
 
@@ -13,15 +14,15 @@
 
 ### Installation
 
-To install PromptTuner, use pip:
+To install promptuner, use pip:
 
 ```bash
-pip install prompttuner
+pip install git+https://github.com/unclecode/promptuner.git
 ```
 
 ### Usage
 
-Here's a basic example of how to use PromptTuner:
+Here's a basic example of how to use promptuner:
 
 ```python
 from promptuner import Prompt
@@ -105,5 +106,5 @@ We welcome contributions from the community. If you have any ideas, suggestions,
 
 ## License
 
-PromptTuner is licensed under the Apache 2.0 License.
+promptuner is licensed under the Apache 2.0 License.
 
