@@ -56,7 +56,7 @@ const Sidebar = () => {
 
   return (
     <div className="w-1/6 pr-4 flex flex-col">
-      <h1 className="text-2xl font-bold mb-4 mt-0 pt-0">Prompter</h1>
+      <h1 className="text-2xl font-bold mb-4 mt-0 pt-0">promptuner</h1>
       <div className="flex-1 flex flex-col">
         <div className="mb-4">
           <label htmlFor="model-name" className="block mb-2">

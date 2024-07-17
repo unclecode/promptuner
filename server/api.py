@@ -4,8 +4,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional, Dict
-from prompter import Prompt
-from prompter.decorators import BaseDecorator
+from promptuner import Prompt
+from promptuner.decorators import BaseDecorator
 from config import MODEL_NAME
 import importlib
 import os
@@ -28,7 +28,7 @@ class PromptResponse(BaseModel):
     token_count: int
 
 def load_decorator(decorator_config: DecoratorConfig) -> BaseDecorator:
-    module = importlib.import_module('prompter.decorators')
+    module = importlib.import_module('promptuner.decorators')
     decorator_class = getattr(module, decorator_config.name)
     return decorator_class(**decorator_config.params)
 

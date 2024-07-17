@@ -1,4 +1,4 @@
-from prompter import Prompter, Prompt
+from promptuner import promptuner, Prompt
 import os, json
 from pathlib import Path
 
@@ -16,8 +16,8 @@ with open(__current__ / "sample_passage.md", "r") as file:
 variables = ["PASSAGE"]
 
 # Create prompt
-prompter = Prompter()
-prompt = prompter(TASK, variables)
+promptuner = promptuner()
+prompt = promptuner(TASK, variables)
 print(prompt.prompt)    
 
 # Execute prompt    

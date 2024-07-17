@@ -1,5 +1,5 @@
-from prompter import Prompt   
-from prompter.decorators import *
+from promptuner import Prompt   
+from promptuner.decorators import *
 
 import json
  

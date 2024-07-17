@@ -1,8 +1,8 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
 
-from prompter import Prompt   
-from prompter.decorators import *
+from promptuner import Prompt   
+from promptuner.decorators import *
 import json
 
 if __name__ == "__main__":
