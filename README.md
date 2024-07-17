@@ -95,6 +95,7 @@ for tag, content in response['tags'].items():
     if tag != "analysis":
         print(f"<{tag}>\n{content}\n</{tag}>")
 ```
+For more examples check the `docs/examples` folder.
 
 ## Stay Tuned
 
