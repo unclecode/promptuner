@@ -1,0 +1,100 @@
+:root {
+    --global-font-size: 16px;
+    --global-line-height: 1.5em;
+    --global-space: 10px;
+    --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+        Courier New, monospace, serif;
+    --font-stack: dm, Monaco, Courier New, monospace, serif;
+    --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+        Courier New, monospace, serif;
+
+    --background-color: #151515; /* Dark background */
+    --font-color: #eaeaea; /* Light font color for contrast */
+    --invert-font-color: #151515; /* Dark color for inverted elements */
+    --primary-color: #1a95e0; /* Primary color can remain the same or be adjusted for better contrast */
+    --secondary-color: #727578; /* Secondary color for less important text */
+    --error-color: #ff5555; /* Bright color for errors */
+    --progress-bar-background: #444; /* Darker background for progress bar */
+    --progress-bar-fill: #1a95e0; /* Bright color for progress bar fill */
+    --code-bg-color: #1e1e1e; /* Darker background for code blocks */
+    --input-style: solid; /* Keeping input style solid */
+    --block-background-color: #202020; /* Darker background for block elements */
+    --global-font-color: #eaeaea; /* Light font color for global elements */
+
+    --background-color: #222225;
+
+    --background-color: #070708;
+    --page-width: 70em;
+    --font-color: #e8e9ed;
+    --middle-font-color: #676767;
+    --invert-font-color: #222225;
+    --secondary-color: #a3abba;
+    --secondary-color: #d5cec0;
+    --tertiary-color: #a3abba;
+    --primary-color: #50ffff; /* Updated to the brand color */
+    --primary-color: #09b5a5; /* Updated to the brand color */
+    --error-color: rgb(255, 60, 116);
+    --progress-bar-background: #3f3f44;
+    --progress-bar-fill: #09b5a5; /* Updated to the brand color */
+    --code-bg-color: #3f3f44;
+    --input-style: solid;
+    --input-border-color: #616161;
+
+    --display-h1-decoration: none;
+}
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    font-size: var(--global-font-size);
+    line-height: var(--global-line-height);
+    font-family: var(--font-stack);
+    background-color: var(--background-color);
+    color: var(--font-color);
+    transition: background-color 0.5s, color 0.5s;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#prompt-result {
+    white-space: pre-wrap;
+}
+
+input, textarea {
+    border: none !important;
+    outline: none !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--background-color) !important;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid var(--primary-color) !important;
+}
+
+button.primary {
+    background-color: var(--primary-color) !important;
+    color: var(--invert-font-color) !important;
+}
+button.primary:hover {
+    background-color: #0c8b7d !important;
+    color: var(--invert-font-color) !important;
+}
+
+button.secondary {
+    background-color: var(--secondary-color) !important;
+    color: var(--invert-font-color) !important;
+}
+button.secondary:hover {
+    background-color: #8c8c8c !important;
+    color: var(--invert-font-color) !important;
+}

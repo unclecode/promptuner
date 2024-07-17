@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Prompt Generator</title>
+        <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.2/dist/terminal.min.css" />
+        <link rel="stylesheet" href="/static/css/dmvendor.css" />
+        <link rel="stylesheet" href="/static/css/styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>    
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    </head>
+    <body class="bg-gray-900 text-white">
+        <div id="root"></div>
+
+        <script type="text/babel" src="/static/js/components/AppContext.js"></script>
+        <script type="text/babel" src="/static/js/components/Sidebar.js"></script>
+        <script type="text/babel" src="/static/js/components/MainContent.js"></script>
+        <script type="text/babel" src="/static/js/components/PromptGenerator.js"></script>
+        <script type="text/babel" src="/static/js/App.js"></script>
+        <script type="text/babel">
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(React.createElement(App));
+        </script>
+    </body>
+</html>

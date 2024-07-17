@@ -1,0 +1,7 @@
+In 1955, Rosa Parks, a prominent figure in the American civil rights movement, refused to give up her bus seat to a white passenger in Montgomery, Alabama. This act of defiance sparked the Montgomery Bus Boycott, a pivotal event in the struggle for racial equality. The boycott was organized by the Montgomery Improvement Association, led by a young pastor named Martin Luther King Jr.
+
+King's leadership during the 381-day boycott catapulted him to national prominence. His advocacy for nonviolent resistance, inspired by Mahatma Gandhi's philosophy, became a cornerstone of the civil rights movement. The boycott eventually led to a United States Supreme Court decision that declared the Alabama bus segregation laws unconstitutional.
+
+The success of the Montgomery Bus Boycott encouraged further civil rights activities, including the founding of the Southern Christian Leadership Conference (SCLC) in 1957. King served as the SCLC's first president, working alongside other activists like Ralph Abernathy and Bayard Rustin to coordinate nonviolent protests against racist policies across the American South.
+
+These events set the stage for larger demonstrations, culminating in the 1963 March on Washington for Jobs and Freedom. At this historic gathering, King delivered his famous "I Have a Dream" speech at the Lincoln Memorial, solidifying his place as a central figure in American history and the global struggle for human rights.
