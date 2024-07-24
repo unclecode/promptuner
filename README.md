@@ -22,8 +22,14 @@ pip install git+https://github.com/unclecode/promptuner.git
 
 ### Usage
 
-Here's a basic example of how to use promptuner:
+Here's a basic example of how to use promptuner. First make sure to set your Anthropic Api Key in the environment variable `ANTHROPIC_API_KEY`.
+```
+export ANTHROPIC_API_KEY=YOUR_ANTHROPIC_API_KEY
+```
 
+I use Claude only for generating the prompt, which I found better than other models, however you may try other models as well. Specially the recent ones like `Llama3.1-70b` or `Llama3.1-405b`.
+
+1. Create the Prompt
 ```python
 from promptuner import Prompt
 from promptuner.decorators import *
@@ -50,9 +56,14 @@ prompt.train()
 
 # Print the generated prompt template
 print("Generated Prompt Template:")
-print(prompt.prompt)
-prompt.save("data/email_analysis_prompt.json")
+print(prompt.content)
+prompt.save("email_analysis_prompt.json")
+```
 
+2. Use the Prompt
+You may simply use the generated prompt, replace the generate variables with the actual values and pass the prompt to your favorite model. Another way is to use the `promptuner` library to execute the prompt for you.
+
+```python
 # Sample email content
 EMAIL_CONTENT = """
 From: john.doe@example.com
@@ -71,10 +82,34 @@ John Doe
 Project Manager
 """
 
+prompt Prompt.load("email_analysis_prompt.json")
 # Define class labels
 CLASS_LABELS = "Work-related, Personal, Spam, Urgent, Newsletter, Other"
 
-# Use the prompt to analyze the email
+# First Method: Use the generated prompt directly
+new_prompt = prompt.content.replace("{{EMAIL_CONTENT}}", EMAIL_CONTENT)
+new_prompt = prompt.content.replace("{{CLASS_LABELS}}", CLASS_LABELS)
+from openai import OpenAI
+client = OpenAI()
+
+completion = client.chat.completions.create(
+  model="gpt-4o",
+  messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": new_prompt}
+  ]
+)
+
+answer = completion.choices[0].message
+tag = "analysis"
+pattern = f"<{tag}>(.*?)</{tag}>"
+match = re.search(pattern, answer, re.DOTALL)
+if match:
+    result = match.group(1).strip()
+print("\nEmail Analysis Results:")
+print(result)
+
+# Second Method: Use the promptuner library to execute the prompt
 response = prompt(
     variable_values={
         "EMAIL_CONTENT": EMAIL_CONTENT,
@@ -94,7 +129,9 @@ print("\nTags:")
 for tag, content in response['tags'].items():
     if tag != "analysis":
         print(f"<{tag}>\n{content}\n</{tag}>")
+
 ```
+
 For more examples check the `docs/examples` folder.
 
 ## Stay Tuned

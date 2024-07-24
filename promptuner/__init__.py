@@ -16,7 +16,7 @@ class Prompt:
         self.task = task
         self.variables = variables or []
         self.decorators = []
-        self.prompt = None
+        self.content = None
         self.token_count = None
         self.model_name = model_name or MODEL_NAME
         self.answer_tag = kwargs.get("answer_tag", "result")
@@ -29,8 +29,12 @@ class Prompt:
         
         # Load metaprompt
         __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+        # Load metaprompt
+        package_dir = os.path.dirname(os.path.abspath(__file__))
+        metaprompts_dir = os.path.join(package_dir, "metaprompts")
+        metaprompt_file = os.path.join(metaprompts_dir, f"{metaprompt}.md")
         try:
-            with open(os.path.join(__location__, "metaprompts", f"{metaprompt}.md"), "r") as file:
+            with open(metaprompt_file, "r") as file:
                 self.metaprompt = file.read()
         except FileNotFoundError:
             raise ValueError(f"Metaprompt file '{metaprompt}.md' not found")
@@ -78,16 +82,16 @@ class Prompt:
         remove_empty_tags = lambda x: re.sub(r"<(\w+)></\1>$", "", x)
         
         between_tags = extract_between_tags("Instructions", metaprompt_response)[0]
-        self.prompt = remove_empty_tags(between_tags).strip()
+        self.content = remove_empty_tags(between_tags).strip()
         
         pattern = r"{(.*)}"
-        self.variables = list(set(re.findall(pattern, self.prompt)))
+        self.variables = list(set(re.findall(pattern, self.content)))
 
     def run(self, variable_values: Dict[str, str], model_name: str = None, api_key: str = None, **kwargs) -> Union[str, Dict]:
         return self(variable_values, model_name, api_key, **kwargs)
     
     def __call__(self, variable_values: Dict[str, str], model_name: str = None, api_key: str = None, **kwargs) -> Union[str, Dict]:
-        if not self.prompt:
+        if not self.content:
             raise ValueError("Prompt hasn't been trained yet. Call the train() method first.")
         
         prompt = self.replace_variables(variable_values)
@@ -113,7 +117,7 @@ class Prompt:
         return {"answer": content, "tags": tags_contnet, "raw": response.choices[0].message.content}
 
     def replace_variables(self, variable_values: Dict[str, str]) -> str:
-        prompt_with_variables = self.prompt
+        prompt_with_variables = self.content
         for variable, value in variable_values.items():
             if variable not in self.variables:
                 continue
@@ -122,14 +126,14 @@ class Prompt:
 
     def save(self, path: str):
         with open(path, "w") as file:
-            json.dump({"task": self.task, "prompt": self.prompt, "variables": self.variables}, file)
+            json.dump({"task": self.task, "prompt": self.content, "variables": self.variables}, file)
 
     @staticmethod
     def load(path: str) -> "Prompt":
         with open(path, "r") as file:
             data = json.load(file)
             prompt = Prompt(data["task"])
-            prompt.prompt = data["prompt"]
+            prompt.content = data["prompt"]
             prompt.variables = data["variables"]
             return prompt
         

@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # Print the generated prompt template
     print("Generated Prompt Template:")
-    print(prompt.prompt)
+    print(prompt.content)
     prompt.save("data/email_analysis_prompt.json")
     
     # Sample email content
@@ -90,4 +90,4 @@ if __name__ == "__main__":
     # Optionally, load the saved prompt
     # loaded_prompt = Prompt.load("data/email_analysis_prompt.json")
     # print("\nLoaded Prompt Template:")
-    # print(loaded_prompt.prompt)
+    # print(loaded_prompt.content)

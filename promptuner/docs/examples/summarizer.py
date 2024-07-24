@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     # Print the generated prompt template
     print("Generated Prompt Template:")
-    print(prompt.prompt)
+    print(prompt.content)
 
     # Load a sample passage
     SAMPLE_PASSAGE = """
@@ -54,4 +54,4 @@ These events set the stage for larger demonstrations, culminating in the 1963 Ma
     # Optionally, load the saved prompt
     # loaded_prompt = Prompt.load("data/saved_prompt.json")
     # print("\nLoaded Prompt Template:")
-    # print(loaded_prompt.prompt)
+    # print(loaded_prompt.content)

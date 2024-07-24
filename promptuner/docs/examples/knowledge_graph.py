@@ -32,7 +32,7 @@ The output should be a JSON object with the two keys, one is 'entities' and the 
 
     # Print the generated prompt template
     print("Generated Prompt Template:")
-    print(prompt.prompt)
+    print(prompt.content)
     prompt.save("data/knowledge_graph_prompt.json")
     
     # Sample passage

@@ -31,6 +31,9 @@ setup(
     ],
     packages=find_packages(),
     include_package_data=True,
+    package_data={
+        'promptuner': ['metaprompts/*.md'],
+    },
     install_requires=required,
     entry_points={
         "console_scripts": [

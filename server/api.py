@@ -48,7 +48,7 @@ async def generate_prompt(request: PromptRequest):
         # Train the prompt
         prompt.train()
         
-        return PromptResponse(prompt=prompt.prompt, token_count=prompt.token_count)
+        return PromptResponse(prompt=prompt.content, token_count=prompt.token_count)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

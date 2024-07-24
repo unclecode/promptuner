@@ -18,7 +18,7 @@ variables = ["PASSAGE"]
 # Create prompt
 promptuner = promptuner()
 prompt = promptuner(TASK, variables)
-print(prompt.prompt)    
+print(prompt.content)    
 
 # Execute prompt    
 print(prompt.replace_variables({"PASSAGE": SAMPLE_PASSAGE}))
@@ -32,4 +32,4 @@ print(json.dumps(result, indent=4))
 # Test saving and loading prompt
 prompt.save(__current__ / "prompt.json")
 prompt = Prompt.load(__current__ / "prompt.json")
-print(prompt.prompt)
+print(prompt.content)
