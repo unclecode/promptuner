@@ -22,6 +22,8 @@ pip install git+https://github.com/unclecode/promptuner.git
 
 ### Usage
 
+You may try this Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1kqy0QonMu7l40lJwMzsu5i9ItthlI_FW#scrollTo=HsJ-D4_5raT6)
+
 Here's a basic example of how to use promptuner. First make sure to set your Anthropic Api Key in the environment variable `ANTHROPIC_API_KEY`.
 ```
 export ANTHROPIC_API_KEY=YOUR_ANTHROPIC_API_KEY
@@ -82,11 +84,12 @@ John Doe
 Project Manager
 """
 
-prompt Prompt.load("email_analysis_prompt.json")
+prompt = Prompt.load("email_analysis_prompt.json")
 # Define class labels
 CLASS_LABELS = "Work-related, Personal, Spam, Urgent, Newsletter, Other"
 
 # First Method: Use the generated prompt directly
+import re
 new_prompt = prompt.content.replace("{{EMAIL_CONTENT}}", EMAIL_CONTENT)
 new_prompt = prompt.content.replace("{{CLASS_LABELS}}", CLASS_LABELS)
 from openai import OpenAI
